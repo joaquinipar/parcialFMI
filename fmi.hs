@@ -24,6 +24,14 @@ namibia = Pais{
     deuda = 50
 }
 
+argentina = Pais{
+    ipc = 4140.0,
+    empleadosPublicos = 400000,
+    empleadosPrivados = 650000,
+    recursosNaturales = ["mineria","petroleo"],
+    deuda = 50
+}
+
 -- Punto 2
 
 aFloat :: Int -> Float
@@ -57,4 +65,15 @@ receta1 :: Pais -> Pais
 receta1 = (darExplotacion "mineria").(prestar 200)
 
 receta1ANamibia = receta1 namibia
+
+-- Punto 4
+
+seSalvan listaPaises = filter ((elem "petroleo").recursosNaturales)  listaPaises   
+
+deudaTotal :: [Pais] -> Float
+deudaTotal = sum.(map deuda)
+
+
+
+-- (filter (/= "Petroleo") ).recursosNaturales
 
