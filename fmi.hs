@@ -53,3 +53,8 @@ pbi pais = (ipc pais) * (empleadosPublicos pais + empleadosPrivados pais)
 blindaje :: Pais -> Pais
 blindaje pais = pais {deuda = (deuda pais) + (pbi pais)/2,empleadosPublicos = (empleadosPublicos pais) - 500 }
 
+receta1 :: Pais -> Pais
+receta1 = (darExplotacion "mineria").(prestar 200)
+
+receta1ANamibia = receta1 namibia
+
